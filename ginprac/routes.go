@@ -29,4 +29,7 @@ func routeDefinitions(router *gin.Engine) {
 	router.PUT("/updateUser/:username", func(c *gin.Context) {
 		models.UpdateUsers(c)
 	})
+	router.DELETE("/deleteUsers", func(c *gin.Context) {
+		models.DeleteUsers(c)
+	})
 }
