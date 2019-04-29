@@ -25,10 +25,9 @@ var users = []UserDetails{}
 
 //CreateUser ... Used to create a new User
 func CreateUser(c *gin.Context) {
-	Client := mongoconn.Client
-	collection := Client.Database("demo").Collection("users")
 	// Gets the data in the form of buffer, unmarshal it using json. The unmarshalled json will be stored in m.
 	var userdetail UserDetails
+	fmt.Println(c)
 	binderr := c.ShouldBindJSON(&userdetail)
 	fmt.Println(binderr)
 	if binderr != nil {
@@ -40,6 +39,9 @@ func CreateUser(c *gin.Context) {
 		return
 	}
 	fmt.Println(userdetail)
+
+	Client := mongoconn.Client
+	collection := Client.Database("demo").Collection("users")
 	ctx, err1 := context.WithTimeout(context.Background(), 10*time.Second)
 	if err1 != nil {
 	}
