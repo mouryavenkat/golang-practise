@@ -1,0 +1,3 @@
+--> Interface, under the hood is a tuple of the value and the type 
+
+    describe(interfaceObject) will display information about interface
